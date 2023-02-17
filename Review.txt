@@ -1,0 +1,4 @@
+# Python_scraper
+
+Through this project, we are scrapping all the comments for a particular item that is being searched from the front end and then it is hitting the python api,
+ and from that api the scrapping comments is coming see the project.py file for the python code and html files and css files includes for the front end codes
