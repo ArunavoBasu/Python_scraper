@@ -17,10 +17,18 @@ def index():
     if request.method == 'POST':
         try:
             searchString = request.form['content'].replace(" ","")
+
+             #flipkart website url and the item we want to search
             flipkart_url = "https://www.flipkart.com/search?q=" + searchString
+
+            # uReq --> used to hit any url from python in the world
             uClient = uReq(flipkart_url)
+
+            #page source (html datas) are stored in this variable
             flipkartPage = uClient.read()
             uClient.close()
+
+            #bs --> beautification, "html.parser" --> as the flipkartpage is a HTML element
             flipkart_html = bs(flipkartPage, "html.parser")
             bigboxes = flipkart_html.findAll("div", {"class": "_1AtVbE col-12-12"})
             del bigboxes[0:3]
